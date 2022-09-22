@@ -1,0 +1,36 @@
+<section class="carrito">
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Dulces</th>
+                <th>Precio</th>
+                <th>Descripcion</th>
+                <th>Cantidad</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dulce of dulces">
+                <td class="td-imagen"><img [src]="dulce.imagen.path" [alt]="dulce.imagen.alt"></td>
+                <td>{{dulce.titulo}}</td>
+                <td>{{dulce.precio | currency}}</td>
+                <td>{{dulce.descripcion}}</td>
+                <td>
+                    <button [ngClass]="{'not-allowed': dulce.cantidad == 0}" (click)="disminuirCantidad(dulce)">-</button>
+
+                    <input type="number" name="cantidad-input" id="cantidad-input" class="cantidad-input" [value]="dulce.cantidad" [(ngModel)]="dulce.cantidad" (change)="verificarStock($event, dulce)">
+
+                    <button [ngClass]="{'not-allowed': dulce.cantidad == dulce.stock}" (click)="incrementarCantidad(dulce)">+</button>
+                </td>
+                <td *ngIf="dulce.stock > 0">{{dulce.stock}}</td>
+                <td *ngIf="dulce.stock == 0">Sin stock</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="precio-compra">
+        <p>Subtotal: $ <!-- {{subtotal}} --></p>
+        <p>Total: $ <!-- {{total}} --></p>
+    </div>
+    <button>Comprar todo</button>
+</section>
