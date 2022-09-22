@@ -1,0 +1,23 @@
+header, footer {
+    display: flex;
+    background: blueviolet;
+}
+header nav {
+    width: 30%;
+    margin: auto 2%;
+}
+header nav ul {
+    display: flex;
+    font-size: 20px;
+}
+header nav ul li {
+    margin-left: 20px;
+    padding: 5px;
+    border: 1px white solid;
+}
+ul {
+    list-style: none;
+}
+footer {
+    justify-content: space-evenly;
+}

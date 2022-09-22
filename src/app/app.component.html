@@ -1,3 +1,17 @@
+<header>
+    <h1>{{titulo}}</h1>
+    <nav>
+        <ul>
+            <a [routerLink]="['']"><li>Inicio</li></a>
+            <a [routerLink]="['/about']"><li>About</li></a>
+        </ul>
+    </nav>
+</header>
+
 <h1>Hola {{ titulo }}</h1>
-<app-dulces-lista></app-dulces-lista>
-<!-- <app-carrito-compras></app-carrito-compras> -->
+<router-outlet></router-outlet>
+
+<footer>
+    <p>Derechos de autor (c)</p>
+    <p>{{titulo}}</p>
+</footer>
