@@ -54,37 +54,6 @@ export class DulcesListaComponent implements OnInit {
     ]
   }
 
-  verificarStock(event: any, dulce: Dulce): void {
-
-    /* let cantidadIngresada = event.target.value;
-    console.log(cantidadIngresada); */
-    console.log(dulce.cantidad);
-
-    if (dulce.cantidad > dulce.stock) {
-
-      dulce.cantidad = dulce.stock
-    }else if (dulce.cantidad < 0) {
-      
-      dulce.cantidad = 0;
-    } else {
-      dulce.cantidad = dulce.cantidad
-    }
-  }
-
-  incrementarCantidad(dulce: Dulce): void {
-
-    if (dulce.cantidad < dulce.stock) {
-      dulce.cantidad++;
-    }
-  }
-
-  disminuirCantidad(dulce: Dulce) : void {
-
-    if (dulce.cantidad > 0) {
-      dulce.cantidad--;
-    }
-  }
-
   ngOnInit(): void {
   }
 

@@ -1,0 +1,7 @@
+<div>
+    <button [ngClass]="{'not-allowed': dulce.cantidad == 0}" (click)="disminuirCantidad(dulce)">-</button>
+
+    <input type="number" name="cantidad-input" id="cantidad-input" class="cantidad-input" [value]="dulce.cantidad" [(ngModel)]="dulce.cantidad" (change)="verificarStock($event, dulce)">
+    
+    <button [ngClass]="{'not-allowed': dulce.cantidad == dulce.stock}" (click)="incrementarCantidad(dulce)">+</button>
+</div>

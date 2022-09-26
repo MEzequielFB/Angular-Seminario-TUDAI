@@ -62,14 +62,6 @@ div.precio-compra, table td button, table td input.cantidad-input {
 div.precio-compra {
     margin: 10px 0px;
 }
-table td button {
-    width: 20%;
-}
-input.cantidad-input {
-    width: 50%;
-    text-align: center;
-    color: black;
-}
 button {
     font-weight: bold;
     color: white;
@@ -77,7 +69,4 @@ button {
     background: blueviolet;
     border-radius: 15px;
     cursor: pointer;
-}
-.not-allowed {
-    cursor: not-allowed;
 }

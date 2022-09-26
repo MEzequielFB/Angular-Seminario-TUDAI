@@ -1,0 +1,18 @@
+input.cantidad-input {
+    width: 50%;
+    color: black;
+}
+button {
+    font-weight: bold;
+    color: white;
+    padding: 1%;
+    background: blueviolet;
+    border-radius: 15px;
+    cursor: pointer;
+}
+div button {
+    width: 20%;
+}
+.not-allowed {
+    cursor: not-allowed;
+}

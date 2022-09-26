@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { CarritoComponent } from './carrito/carrito.component';
 import { DulcesComponent } from './dulces/dulces.component';
 import { AboutComponent } from './about/about.component';
+import { InputCantidadComponent } from './input-cantidad/input-cantidad.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { AboutComponent } from './about/about.component';
     CarritoComponent,
     DulcesComponent,
     AboutComponent,
+    InputCantidadComponent,
   ],
   imports: [
     BrowserModule,

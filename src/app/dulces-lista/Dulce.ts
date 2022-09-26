@@ -1,8 +1,10 @@
+import { Imagen } from "./Imagen"
+
 export interface Dulce {
     titulo: String,
     precio: number,
     descripcion: String,
-    imagen: any,
+    imagen: Imagen,
     stock: number
     descuento: boolean,
     cantidad: number
