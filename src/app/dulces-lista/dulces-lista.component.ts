@@ -54,6 +54,10 @@ export class DulcesListaComponent implements OnInit {
     ]
   }
 
+  maxReached(mensaje: String): void {
+    console.log(mensaje);
+  }
+
   ngOnInit(): void {
   }
 

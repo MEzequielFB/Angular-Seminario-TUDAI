@@ -1,5 +1,4 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { Dulce } from '../dulces-lista/Dulce';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-input-cantidad',
@@ -9,38 +8,57 @@ import { Dulce } from '../dulces-lista/Dulce';
 export class InputCantidadComponent implements OnInit {
 
   @Input()
-  dulce!: Dulce; //El ! evita que haga falta inicializar el atributo
+  cantidad!: number; //El ! evita que haga falta inicializar el atributo
 
-  constructor() {}
+  @Input()
+  max!: number;
 
-  verificarStock(event: any, dulce: Dulce): void {
+  @Output()
+  cantidadChange: EventEmitter<number>;
+
+  @Output()
+  maxReached: EventEmitter<String>;
+
+  constructor() {
+
+    this.cantidadChange = new EventEmitter<number>();
+    this.maxReached = new EventEmitter<String>();
+  }
+
+  verificarStock(): void {
 
     /* let cantidadIngresada = event.target.value;
     console.log(cantidadIngresada); */
-    console.log(dulce.cantidad);
+    console.log(this.cantidad);
 
-    if (dulce.cantidad > dulce.stock) {
+    if (this.cantidad > this.max) {
 
-      dulce.cantidad = dulce.stock
-    }else if (dulce.cantidad < 0) {
+      this.cantidad = this.max
+      this.maxReached.emit("Se alcanzó el máximo");
+    }else if (this.cantidad < 0) {
       
-      dulce.cantidad = 0;
+      this.cantidad = 0;
     } else {
-      dulce.cantidad = dulce.cantidad
+      this.cantidad = this.cantidad
+    }
+    this.cantidadChange.emit(this.cantidad);
+  }
+
+  incrementarCantidad(): void {
+
+    if (this.cantidad < this.max) {
+      this.cantidad++;
+      this.cantidadChange.emit(this.cantidad);
+    } else {
+      this.maxReached.emit("Se alcanzó el máximo");
     }
   }
 
-  incrementarCantidad(dulce: Dulce): void {
+  disminuirCantidad(): void {
 
-    if (dulce.cantidad < dulce.stock) {
-      dulce.cantidad++;
-    }
-  }
-
-  disminuirCantidad(dulce: Dulce) : void {
-
-    if (dulce.cantidad > 0) {
-      dulce.cantidad--;
+    if (this.cantidad > 0) {
+      this.cantidad--;
+      this.cantidadChange.emit(this.cantidad);
     }
   }
   

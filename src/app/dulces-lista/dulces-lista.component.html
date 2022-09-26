@@ -17,7 +17,7 @@
                 <td>{{dulce.precio | currency}}</td>
                 <td>{{dulce.descripcion}}</td>
                 <td>
-                    <app-input-cantidad [dulce]="dulce" *ngIf="dulce.stock > 0"></app-input-cantidad>
+                    <app-input-cantidad [(cantidad)]="dulce.cantidad" [max]="dulce.stock" (maxReached)="maxReached($event)" *ngIf="dulce.stock > 0"></app-input-cantidad>
                     cantidad: {{dulce.cantidad}}
                 </td>
                 <td *ngIf="dulce.stock > 0">{{dulce.stock}}</td>
