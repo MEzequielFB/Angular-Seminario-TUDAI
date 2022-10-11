@@ -8,6 +8,7 @@
                 <th>Descripcion</th>
                 <th>Cantidad</th>
                 <th>Stock</th>
+                <th>Compra</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +23,7 @@
                 </td>
                 <td *ngIf="dulce.stock > 0">{{dulce.stock}}</td>
                 <td *ngIf="dulce.stock == 0">Sin stock</td>
+                <td><button (click)="addToCarrito(dulce)">Comprar</button></td>
             </tr>
         </tbody>
     </table>

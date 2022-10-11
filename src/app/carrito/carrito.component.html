@@ -1,1 +1,6 @@
 <h1>{{titulo}}</h1>
+<ul>
+    <li *ngFor="let dulce of dulces$ | async">
+        {{dulce.titulo}}: {{dulce.cantidad}}
+    </li>
+</ul>

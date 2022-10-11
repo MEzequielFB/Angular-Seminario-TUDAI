@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarritoService } from '../carrito.service';
 import { Dulce } from './Dulce';
 
 @Component({
@@ -10,8 +11,9 @@ export class DulcesListaComponent implements OnInit {
 
   titulo: String;
   dulces: Dulce[];
+  //carrito_service: CarritoService;
 
-  constructor() {
+  constructor(private carrito_service: CarritoService) { //Se pasa la instancia del carrito como parametro del constructor
 
     this.titulo = "Dulces recomendados";
     this.dulces = [
@@ -52,6 +54,13 @@ export class DulcesListaComponent implements OnInit {
         cantidad: 0
       },
     ]
+    this.carrito_service = carrito_service;
+  }
+
+  addToCarrito(dulce: Dulce): void { //Se agrega al servicio la cantidad de dulces indicada en el template de la lista
+    this.carrito_service.addDulce(dulce);
+    dulce.stock -= dulce.cantidad; //Se resta la cantidad agregada al stock
+    dulce.cantidad = 0; //Se vuelve a setear la cantidad a 0
   }
 
   maxReached(mensaje: String): void {
